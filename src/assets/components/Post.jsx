@@ -117,7 +117,7 @@ function Post({ content }) {
     return (
 
         <>
-            <div className="instaPost w-[35vw] text-left px-4">
+            <div className="instaPost w-[100vw] text-left px-4">
                 <div className="cardHeader mb-3 px-2">
                     <div className="header flex gap-2 items-center justify-between">
                         <div className="nameBox flex items-center gap-1">
