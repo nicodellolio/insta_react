@@ -70,7 +70,7 @@ function Search() {
                         className="outline-none border-none bg-transparent w-full placeholder-gray-500 text-black"
                     />
                 </div>
-                <button>
+                <button className="!bg-transparent">
                     <i className="fa-solid fa-ellipsis text-[1.2rem] text-gray-600"></i>
                 </button>
             </div>

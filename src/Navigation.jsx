@@ -11,7 +11,10 @@ import { SlMagnifier } from "react-icons/sl";
 import { FaMagnifyingGlass } from "react-icons/fa6";
 
 
-function Navigation({ setLoading }) {
+function Navigation({ setLoading, conversations }) {
+
+    const unreadConv = conversations.find(conv => conv.unread == true)
+    const convToRead = unreadConv ? true : false
 
     const handleToHome = () => {
         setLoading(true)
@@ -22,7 +25,7 @@ function Navigation({ setLoading }) {
     }
 
     return (
-        <nav className="h-[60px] bg-gray-200 border-1 border-gray-300 sticky bottom-0 w-[100vw] flex justify-between px-5 pt-2">
+        <nav className="h-[60px] bg-gray-200 border-1 border-gray-300 sticky bottom-0 w-full flex justify-between px-5 pt-2 z-10">
             <div>
                 <NavLink to="/" onClick={handleToHome} end>
                     {({ isActive }) => (
@@ -48,11 +51,14 @@ function Navigation({ setLoading }) {
             <div>
                 <NavLink to="/direct" onClick={handleToHome}>
                     {({ isActive }) => (
-                        isActive ? (
-                            <BsSendFill color="000B2D" size={30} />
-                        ) : (
-                            <BsSend color="000B2D" size={30} />
-                        )
+                        <div className="relative pt-[5px]">
+                            {isActive ? (
+                                <BsSendFill color="000B2D" size={28} />
+                            ) : (
+                                <BsSend color="000B2D" size={28} />
+                            )}
+                            {convToRead && <div className="bg-red-500 size-[8px] rounded-full absolute left-6 bottom-0"></div>}
+                        </div>
                     )}
                 </NavLink>
             </div>

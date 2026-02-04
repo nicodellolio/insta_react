@@ -13,7 +13,7 @@ import { BiUserPin } from "react-icons/bi";
 import { TbSquaresFilled } from "react-icons/tb";
 import { BsEmojiTear } from "react-icons/bs";
 
-function Profile() {
+function Profile({loggedUser}) {
     const [profileNavigation, setProfileNavigation] = useState("grid") //grid, reels, repost, tagged
     const navigationElements = [
         { id: "grid", Icon: BsFillGrid3X3GapFill, size: 26, category: "travel" },
@@ -21,8 +21,6 @@ function Profile() {
         { id: "repost", Icon: BiRepost, size: 35, category: "soccer" },
         { id: "tagged", Icon: BiUserPin, size: 30, category: "tagged" }
     ]
-
-    const loggedUser = { accountName: "obviouslinico", userName: "Nico", postsCount: 166, followersCount: 983, followingCount: 1395, bio: "Definitely not my insta profile" }
 
     const { accountName, userName, postsCount, followersCount, followingCount, bio } = loggedUser
 
