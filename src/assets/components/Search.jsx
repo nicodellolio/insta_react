@@ -9,32 +9,27 @@ function Search() {
         const typedQuery = e.target.value
         setQuery(typedQuery)
 
-        if (typedQuery.length > 0){
-          setArrayCount(200);  
+        if (typedQuery.length > 0) {
+            setArrayCount(100);
         }
         else {
-          setArrayCount(50);
+            setArrayCount(50);
         }
     }
 
     const categories = [
-        'Natura', 'Tecnologia', 'Persone', 'Animali', 'Architettura', 
-        'Viaggi', 'Cibo', 'Arte', 'Moda', 'Musica', 
-        'Sport', 'Cinema', 'Motori', 'Design', 'Storia'
+        'Natura', 'Persone', 'Animali',
+        'Viaggi', 'Cibo', 'Arte',
+        'Cinema', 'Motori', 'Design', 'Storia'
     ];
 
     const categoryKeywords = {
         'Natura': 'nature',
-        'Tecnologia': 'technology',
         'Persone': 'people',
         'Animali': 'animals',
-        'Architettura': 'architecture',
         'Viaggi': 'travel',
         'Cibo': 'food',
         'Arte': 'art',
-        'Moda': 'fashion',
-        'Musica': 'music',
-        'Sport': 'sports',
         'Cinema': 'cinema',
         'Motori': 'cars',
         'Design': 'design',
@@ -46,14 +41,14 @@ function Search() {
         const keyword = categoryKeywords[category];
         return {
             id: i,
-            imageUrl: `https://loremflickr.com/400/600/${keyword}?lock=${i}`,
-            likes: (i * 123 + 50) % 1000 + 50, // Pseudo-random deterministico
-            comments: (i * 45 + 10) % 100 + 5, // Pseudo-random deterministico
+            imageUrl: `https://loremflickr.com/400/600/${keyword}?lock=${i + 12}`,
+            likes: (i * 123 + 50) % 1000 + 50,
+            comments: (i * 45 + 10) % 100 + 5,
             category: category
         };
     }), [arrayCount]);
 
-    const filteredPosts = explorePosts.filter(post => 
+    const filteredPosts = explorePosts.filter(post =>
         post.category.toLowerCase().includes(query.toLowerCase())
     );
 
@@ -80,7 +75,7 @@ function Search() {
                     <div key={post.id} className="relative cursor-pointer hover:opacity-90 transition-opacity group">
                         <img
                             src={post.imageUrl}
-                            alt={`Post esplora ${post.id}`}
+                            alt={post.category}
                             className="w-full h-full object-cover"
                             loading="lazy"
                         />

@@ -13,6 +13,7 @@ import Profile from './assets/components/Profile'
 import Navigation from './Navigation'
 import SingleConversation from './assets/components/SingleConversation'
 import InputMessage from './assets/components/InputMessage'
+import Follow from './assets/components/Follow'
 //files
 import conversationsFile from './assets/conversations.js'
 //icons
